@@ -93,7 +93,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,3 +122,4 @@ MonoBehaviour:
   breakSound: {fileID: 8300000, guid: 0bb4c061bb323f6439a9ef350d0d1815, type: 3}
   blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   arrow: {fileID: 6075277008235619881, guid: 290b471933adff74a94272ef090caac2, type: 3}
+  mainObject: {fileID: 0}

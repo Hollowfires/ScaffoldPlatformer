@@ -7,7 +7,8 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blockSparklesVFX;
     [SerializeField] Arrow arrow;
-    
+    public GameObject mainObject;
+
 
     private void Start()
     {

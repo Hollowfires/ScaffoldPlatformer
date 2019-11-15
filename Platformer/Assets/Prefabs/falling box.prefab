@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5927137720976499100}
   - component: {fileID: 8839678960413402018}
   - component: {fileID: 9023194793612585037}
-  m_Layer: 0
-  m_Name: box
+  m_Layer: 8
+  m_Name: falling box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
