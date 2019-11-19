@@ -17,6 +17,7 @@ public class newController2D : MonoBehaviour
     BoxCollider2D collider;
     RaycastOrigins raycastOrigins;
     public CollisionInfo collisions;
+    //zoo wee mama
 
     void Start()
     {
