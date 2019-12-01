@@ -9,13 +9,12 @@ public class Arrow : MonoBehaviour
     [SerializeField] Character character;
     //[SerializeField] AudioClip[] arrowSounds;
     [SerializeField] float speed = 20;
+    [SerializeField] Block block;
 
     // state
     Vector2 CrossHairToArrowVector;
     bool inFlight = false;
-    [SerializeField] public bool bombArrow = true;
-
-
+    
 
     // Cached component references
     //AudioSource myAudioSource;
@@ -23,7 +22,7 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameObject.GetComponent<Renderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -46,15 +45,15 @@ public class Arrow : MonoBehaviour
 
     private void SwitchBombArrow()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && bombArrow == false)
+        if (Input.GetKeyDown(KeyCode.Q) && tag == "Untagged")
         {
-            bombArrow = true;
+            tag = "bomb";
             Debug.Log("bomb arrow on");
         }
 
-        else if (Input.GetKeyDown(KeyCode.Q) && bombArrow == true)
+        else if (Input.GetKeyDown(KeyCode.Q) && tag == "bomb")
         {
-            bombArrow = false;
+            tag = "Untagged";
             Debug.Log("bomb arrow off");
         }
     }
@@ -64,22 +63,8 @@ public class Arrow : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            /*float xComponentUnit = (crossHair1.transform.position.x - 6) / Mathf.Sqrt(Mathf.Pow(crossHair1.transform.position.x - 6, 2) + Mathf.Pow(crossHair1.transform.position.y, 2));
-            float yComponentUnit = (crossHair1.transform.position.y) / Mathf.Sqrt(Mathf.Pow(crossHair1.transform.position.x - 6, 2) + Mathf.Pow(crossHair1.transform.position.y, 2));
 
-            inFlight = true;
-            Vector2 crossHairPos = new Vector2(xComponentUnit - 0.05f, yComponentUnit - 0.05f);
-            GetComponent<Rigidbody2D>().velocity = crossHairPos * speed;
-
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-            Vector2 direction = new Vector2(mousePosition.x - character.transform.position.x,
-                                            mousePosition.y - character.transform.position.y);
-
-            transform.up = direction;
-            transform.Rotate(new Vector3(0f, 0f, 90f));*/
-
+            gameObject.GetComponent<Renderer>().enabled = true;
             Vector2 crossHairPos = new Vector2(crossHair1.transform.position.x, crossHair1.transform.position.y);
             Vector2 characterPos = new Vector2(character.transform.position.x, character.transform.position.y);
 
@@ -113,7 +98,8 @@ public class Arrow : MonoBehaviour
         }*/
 
         ResetArrowPos();
-
+        gameObject.GetComponent<Renderer>().enabled = false;
+        
     }
 
     private void ResetArrowPos()
@@ -126,5 +112,6 @@ public class Arrow : MonoBehaviour
 
     }
 
+   
 
 }

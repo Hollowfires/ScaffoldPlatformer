@@ -6,19 +6,17 @@ public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blockSparklesVFX;
-    [SerializeField] Arrow arrow;
     public GameObject mainObject;
 
 
-    private void Start()
-    {
-        
-    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (arrow.bombArrow)
-            DestroyBlock();
+         if (collision.gameObject.tag == "bomb")
+         {
+             DestroyBlock();
+         }
     }
     
     private void DestroyBlock()

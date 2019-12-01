@@ -57,13 +57,6 @@ public class CrossHair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        float mousePosInUnitsY = Input.mousePosition.y ;
-        float mousePosInUnitsX = Input.mousePosition.x ;
-        Vector2 CrossHairPos = new Vector2(transform.position.x, transform.position.y);
-        CrossHairPos.x = Mathf.Clamp(mousePosInUnitsX, xMin, xMax);
-        CrossHairPos.y = Mathf.Clamp(mousePosInUnitsY, yMin, yMax);
-        transform.position = CrossHairPos; */
         SetUpMoveBoundaries();
         Move();
     }
@@ -76,8 +69,6 @@ public class CrossHair : MonoBehaviour
         CrossHairPos = new Vector2(transform.position.x, transform.position.y);
         CrossHairPos.x = Mathf.Clamp(mousePosInUnitsX + Camera.main.transform.position.x - 9, xMin, xMax);
         CrossHairPos.y = Mathf.Clamp(mousePosInUnitsY + Camera.main.transform.position.y - 6, yMin, yMax);
-        Debug.Log("Cross hair position in x axis " + CrossHairPos.x);
-        Debug.Log("Cross hair position in y axis " + CrossHairPos.y);
         transform.position = CrossHairPos;
     }
 
