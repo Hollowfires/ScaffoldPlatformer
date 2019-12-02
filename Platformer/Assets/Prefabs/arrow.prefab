@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e42eafb6cc5ac448b85a1b57310bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50
 --- !u!212 &6075277008235619880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   crossHair1: {fileID: 0}
   character: {fileID: 0}
   speed: 20
-  bombArrow: 1
+  block: {fileID: 0}
 --- !u!50 &6075277008235619878
 Rigidbody2D:
   serializedVersion: 4

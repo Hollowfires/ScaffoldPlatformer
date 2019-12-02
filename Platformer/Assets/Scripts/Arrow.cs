@@ -102,6 +102,12 @@ public class Arrow : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ResetArrowPos();
+        gameObject.GetComponent<Renderer>().enabled = false;
+    }
+
     private void ResetArrowPos()
     {
 
