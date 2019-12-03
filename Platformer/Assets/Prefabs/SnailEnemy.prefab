@@ -67,6 +67,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4577981022837350}
   - component: {fileID: 212310293995588690}
+  - component: {fileID: 114830599570868176}
+  - component: {fileID: 114251331235289124}
   - component: {fileID: 50575574833041584}
   - component: {fileID: 3129815449463844732}
   m_Layer: 0
@@ -140,6 +142,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &114830599570868176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560732185758450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be76d3fdb99e2a43a6924f837850def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  patrolLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  patrollingGameObject: {fileID: 1560732185758450}
+--- !u!114 &114251331235289124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560732185758450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174c3a6b55be242449f3c4d82d4e19b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  deathVFX: {fileID: 2042439458445087981, guid: 0bceef8777d9a9240a8ffb13535d05a9,
+    type: 3}
+  deathSFX: {fileID: 8300000, guid: f2511850271653f42877f73c7e8fddb7, type: 3}
+  durationOfExplosion: 0.5
+  deathSoundVolume: 0.75
 --- !u!50 &50575574833041584
 Rigidbody2D:
   serializedVersion: 4
@@ -171,7 +208,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

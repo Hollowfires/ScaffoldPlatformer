@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6075277008235619879}
+  - component: {fileID: 114338525148392546}
   - component: {fileID: 6075277008235619880}
   - component: {fileID: 6075277008235619881}
   - component: {fileID: 6075277008235619878}
@@ -34,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114338525148392546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075277008235619882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e42eafb6cc5ac448b85a1b57310bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!212 &6075277008235619880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97,6 +111,7 @@ MonoBehaviour:
   crossHair1: {fileID: 0}
   character: {fileID: 0}
   speed: 20
+  block: {fileID: 0}
 --- !u!50 &6075277008235619878
 Rigidbody2D:
   serializedVersion: 4

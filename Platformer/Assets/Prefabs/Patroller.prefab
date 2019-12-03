@@ -200,6 +200,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4547596144822794}
   - component: {fileID: 114140910938686034}
+  - component: {fileID: 114481225566995602}
+  - component: {fileID: 61079763355950368}
   m_Layer: 0
   m_Name: Patroller
   m_TagString: Untagged
@@ -241,6 +243,50 @@ MonoBehaviour:
   - {fileID: 4552768965746740}
   - {fileID: 4788994893131538}
   patrollingGameObject: {fileID: 1702214341717730}
+--- !u!114 &114481225566995602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713705236498936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174c3a6b55be242449f3c4d82d4e19b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  deathVFX: {fileID: 2042439458445087981, guid: 0bceef8777d9a9240a8ffb13535d05a9,
+    type: 3}
+  deathSFX: {fileID: 8300000, guid: f2511850271653f42877f73c7e8fddb7, type: 3}
+  durationOfExplosion: 0.5
+  deathSoundVolume: 0.75
+--- !u!61 &61079763355950368
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713705236498936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1748727894468340
 GameObject:
   m_ObjectHideFlags: 0

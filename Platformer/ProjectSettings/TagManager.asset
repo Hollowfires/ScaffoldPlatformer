@@ -6,7 +6,7 @@ TagManager:
   tags:
   - HurtBox
   - HitBox
-  - Arrow
+  - bomb
   layers:
   - Default
   - TransparentFX

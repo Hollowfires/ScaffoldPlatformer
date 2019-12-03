@@ -6,15 +6,13 @@ public class Arrow : MonoBehaviour
 {
     // config params
     [SerializeField] CrossHair crossHair1;
-    [SerializeField] PlayerMovement character;
+    [SerializeField] Character character;
     //[SerializeField] AudioClip[] arrowSounds;
     [SerializeField] float speed = 20;
 
     // state
     Vector2 CrossHairToArrowVector;
     bool inFlight = false;
-    [SerializeField] public bool bombArrow = true;
-
     
 
     // Cached component references
@@ -23,14 +21,14 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.GetComponent<Renderer>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(inFlight == false)
+        if (inFlight == false)
         {
             LockArrowToCharacter();
             LaunchOnMouseClick();
@@ -38,23 +36,23 @@ public class Arrow : MonoBehaviour
         }
         else
         {
-            if (this.transform.position.x > crossHair1.maxX | this.transform.position.x < crossHair1.minX | this.transform.position.y > crossHair1.maxY | this.transform.position.y < crossHair1.minY)
+            if (this.transform.position.x > crossHair1.getXMax() | this.transform.position.x < crossHair1.getXMin() | this.transform.position.y > crossHair1.getYMax() | this.transform.position.y < crossHair1.getYMin())
                 ResetArrowPos();
         }
-        
+
     }
 
     private void SwitchBombArrow()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && bombArrow == false)
+        if (Input.GetKeyDown(KeyCode.Q) && tag == "Untagged")
         {
-            bombArrow = true;
+            tag = "bomb";
             Debug.Log("bomb arrow on");
         }
 
-        else if (Input.GetKeyDown(KeyCode.Q) && bombArrow == true)
+        else if (Input.GetKeyDown(KeyCode.Q) && tag == "bomb")
         {
-            bombArrow = false;
+            tag = "Untagged";
             Debug.Log("bomb arrow off");
         }
     }
@@ -64,12 +62,24 @@ public class Arrow : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            float xComponentUnit = (crossHair1.transform.position.x - 6) / Mathf.Sqrt(Mathf.Pow(crossHair1.transform.position.x - 6, 2) + Mathf.Pow(crossHair1.transform.position.y, 2));
-            float yComponentUnit = (crossHair1.transform.position.y) / Mathf.Sqrt(Mathf.Pow(crossHair1.transform.position.x - 6, 2) + Mathf.Pow(crossHair1.transform.position.y, 2));
 
+            gameObject.GetComponent<Renderer>().enabled = true;
+            Vector2 crossHairPos = new Vector2(crossHair1.transform.position.x, crossHair1.transform.position.y);
+            Vector2 characterPos = new Vector2(character.transform.position.x, character.transform.position.y);
+
+            Vector2 arrowVec = crossHairPos - characterPos;
+            arrowVec.Normalize();
             inFlight = true;
-            Vector2 crossHairPos = new Vector2(xComponentUnit, yComponentUnit);
-            GetComponent<Rigidbody2D>().velocity = crossHairPos*speed;
+            GetComponent<Rigidbody2D>().velocity = arrowVec * speed;
+
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            Vector2 direction = new Vector2(mousePosition.x - character.transform.position.x,
+                                            mousePosition.y - character.transform.position.y);
+
+            transform.up = direction;
+            transform.Rotate(new Vector3(0f, 0f, 90f));
         }
     }
 
@@ -87,17 +97,26 @@ public class Arrow : MonoBehaviour
         }*/
 
         ResetArrowPos();
+        gameObject.GetComponent<Renderer>().enabled = false;
+        
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ResetArrowPos();
+        gameObject.GetComponent<Renderer>().enabled = false;
     }
 
     private void ResetArrowPos()
     {
-        
-       
-            LockArrowToCharacter();
-            inFlight = false;
-     
+
+
+        LockArrowToCharacter();
+        inFlight = false;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
+
     }
 
-    
+   
+
 }
