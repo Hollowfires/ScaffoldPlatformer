@@ -256,9 +256,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  deathVFX: {fileID: 0}
-  deathSFX: {fileID: 0}
-  durationOfExplosion: 1
+  deathVFX: {fileID: 2042439458445087981, guid: 0bceef8777d9a9240a8ffb13535d05a9,
+    type: 3}
+  deathSFX: {fileID: 8300000, guid: f2511850271653f42877f73c7e8fddb7, type: 3}
+  durationOfExplosion: 0.5
   deathSoundVolume: 0.75
 --- !u!61 &61079763355950368
 BoxCollider2D:

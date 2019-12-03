@@ -9,7 +9,6 @@ public class Arrow : MonoBehaviour
     [SerializeField] Character character;
     //[SerializeField] AudioClip[] arrowSounds;
     [SerializeField] float speed = 20;
-    [SerializeField] Block block;
 
     // state
     Vector2 CrossHairToArrowVector;
